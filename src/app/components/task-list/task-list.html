@@ -1,0 +1,13 @@
+<div class="tasklist-container">
+    <ul>
+        @for(task of (store$ | async).todo; track task.id) {
+            <li>
+                {{ task.name }}
+
+                <button class="task-delete" (click)="handleDeleteTask(task.id)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </li>
+        }
+    </ul>
+</div>

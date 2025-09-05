@@ -1,0 +1,16 @@
+.tasklist-container {
+    font-size: 18px;
+}
+
+.task-delete {
+    background: none;
+    border: none;
+    color: darkred;
+    font-size: 20px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.task-delete:hover {
+    color: dodgerblue;
+}
