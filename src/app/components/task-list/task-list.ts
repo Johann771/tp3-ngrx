@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {createReducer, Store} from '@ngrx/store';
 import {AsyncPipe} from '@angular/common';
-import {todoDelete} from '../../store/todo.actions';
+import {todoCreate, todoDelete} from '../../store/todo.actions';
 
 @Component({
     selector: 'app-task-list',
@@ -14,6 +14,7 @@ import {todoDelete} from '../../store/todo.actions';
 })
 export class TaskList {
     readonly store$ = inject(Store<{todo: any}>);
+    readonly taskName: string = '';
 
     constructor() {
         this.store$.subscribe((data) => {
@@ -23,5 +24,8 @@ export class TaskList {
 
     handleDeleteTask(taskId: number) {
         this.store$.dispatch(todoDelete({taskId: taskId}))
+    }
+    handleAddTask() {
+      this.store$.dispatch(todoCreate({this.taskName}))
     }
 }
